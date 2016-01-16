@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "One Button Clear Cache",
+  "description": "L'estensione permette di svuotare la cache dei file di Chrome in un solo click",
+  "version": "0.1.0",
+
+  "browser_action": {
+    "default_title": "One Button Clear Cache",
+    "default_icon": {
+      "38": "assets/cleaning18.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "browsingData"
+  ]
+}
