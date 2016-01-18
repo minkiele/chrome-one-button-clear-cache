@@ -3,7 +3,10 @@
   $('#clear-cache').on('click', function () {
 
     clearTimeout(timeoutId);
-    $('#clear-cache-msg').addClass('hidden');
+
+    $('#clear-cache').prop('disabled', true);
+    $('#clear-cache-done').addClass('hidden');
+    $('#clear-cache-clearing').removeClass('hidden');
 
     ch.browsingData.removeCache({
       since: 0,
@@ -11,8 +14,13 @@
         unprotectedWeb: true
       }
     }, function () {
+
+      $('#clear-cache').prop('disabled', false);
+      $('#clear-cache-clearing').addClass('hidden');
+      $('#clear-cache-done').removeClass('hidden');
+
       timeoutId = setTimeout(function () {
-        $('#clear-cache-msg').removeClass('hidden');
+        $('#clear-cache-done').addClass('hidden');
       }, 5000);
     });
   });
